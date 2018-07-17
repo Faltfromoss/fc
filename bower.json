@@ -1,0 +1,23 @@
+{
+  "name": "fc",
+  "private": true,
+  "dependencies": {
+    "jQuery": "^3.1.1",
+    "popper.js": "latest",
+    "bootstrap": "^4.0.0",
+    "owl.carousel": "owl-carousel2#^2.3.4"
+  },
+  "overrides": {
+    "jQuery": {
+      "main": "dist/jquery.js"
+    },
+    "bootstrap": {
+      "main": [
+        "dist/js/bootstrap.js",
+        "scss/bootstrap-reboot.scss",
+        "scss/bootstrap.scss",
+        "scss/bootstrap-grid.scss"
+      ]
+    }
+  }
+}

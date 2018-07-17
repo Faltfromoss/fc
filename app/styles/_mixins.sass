@@ -1,0 +1,54 @@
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal)
+  @font-face
+    font-family: $font-family
+    font-weight: $weight
+    font-style: $style
+
+    src: url('#{$file-path}.eot')
+    src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'),
+    url('#{$file-path}.woff') format('woff'),
+    url('#{$file-path}.woff2') format('woff2'),
+    url('#{$file-path}.ttf') format('truetype'),
+    url('#{$file-path}.svg##{$font-family}SVG') format('svg')
+
+// transitions begin
+$shortcuts: (bc: border-color, bgc: background-color, c: color, o: opacity, t: top, l: left, b: bottom, r: right)
+
+@mixin ts($t: .25, $props...)
+  $properties: ()
+  @each $prop in $props
+    $property: map_get($shortcuts, $prop)
+    $properties: append($properties, $property)
+  $transition-props: ''
+  $length: length($properties)
+  $i: 1
+  @each $prop in $properties
+    $transition-props: #{$transition-props} #{$prop} #{$t}s ease
+    @if $i != $length
+      $transition-props: #{$transition-props} ','
+    $i: $i + 1
+  transition: $transition-props
+//transitions end
+
+// include font
+
+@mixin font($font, $w: normal, $s: normal, $sz: inherit)
+  font-family: $font, sans-serif
+  @if $w != normal
+    font-weight: $w
+  @if $s != normal
+    font-style: $s
+  @if $sz != inherit
+    font-size: $sz
+
+// absolute position
+@mixin stretch()
+  position: absolute
+  right: 0
+  left: 0
+  top: 0
+  bottom: 0
+
+// fast border
+@mixin bd()
+  border: 1px solid #000000

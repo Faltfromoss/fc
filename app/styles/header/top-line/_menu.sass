@@ -1,0 +1,43 @@
+.topLine
+  background-color: $blue
+.topLineContainer
+  display: flex
+  justify-content: space-between
+  align-items: center
+  height: 45px
+
+.header--topMenu
+  text-transform: uppercase
+.menu
+  +font(PT_Sans, $sz: 14px)
+  letter-spacing: 1px
+  height: 45px
+  &__list
+    display: flex
+    list-style-type: none
+    height: 100%
+    margin: 0
+  &__item
+    +ts(.3, bgc)
+    background-color: white
+    padding-left: 20px
+    padding-right: 20px
+    &:hover
+      cursor: pointer
+      background-color: $accent
+      .menu__link
+        text-decoration: none
+        color: white
+    &--topMenu
+      border: 1px solid rgba(112, 112, 112, 0.3)
+  &__link
+    line-height: 45px
+    color: #000
+    margin-right: 7px
+    +ts(.3, c)
+    i
+      margin-left: 10px
+  &__item--active
+    background-color: $accent
+    .menu__link
+      color: white
