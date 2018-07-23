@@ -6,7 +6,9 @@ bower_components
 /dist
 /.tmp
 /.idea
+*.ico
+*.png
+app/images
 
 # System Files
-.DS_Store
 Thumbs.db

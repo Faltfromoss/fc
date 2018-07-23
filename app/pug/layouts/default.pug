@@ -1,0 +1,19 @@
+doctype html
+html(lang="")
+    head
+        meta(charset="utf-8")
+        meta(name="description" content="")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        title Food Courier
+        link(rel="apple-touch-icon" href="apple-touch-icon.png")
+        // Place favicon.ico in the root directory
+        // build:css styles/main.css
+        link(rel="stylesheet" href="css/main.css")
+        // endbuild
+    body
+        block content
+        if dev
+            script(src="js/vendors.js")
+        // build:js scripts/main.js
+        script(src="js/main.js")
+        // endbuild
