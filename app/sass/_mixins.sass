@@ -16,6 +16,8 @@ $shortcuts: (bc: border-color, bgc: background-color, c: color, o: opacity, t: t
 
 @mixin ts($t: .25, $props...)
   $properties: ()
+  @if length($props) == 0
+    transition: all #{$t}s ease
   @each $prop in $props
     $property: map_get($shortcuts, $prop)
     $properties: append($properties, $property)
@@ -42,13 +44,19 @@ $shortcuts: (bc: border-color, bgc: background-color, c: color, o: opacity, t: t
     font-size: $sz
 
 // absolute position
-@mixin stretch()
+@mixin stretch($padding: 0)
   position: absolute
-  right: 0
-  left: 0
-  top: 0
-  bottom: 0
+  right: $padding
+  left: $padding
+  top: $padding
+  bottom: $padding
 
 // fast border
-@mixin bd()
-  border: 1px solid #000000
+@mixin bd($color: black)
+  border: 1px solid #{$color}
+
+// flex-center
+@mixin flex-center()
+  display: flex
+  justify-content: center
+  align-items: center

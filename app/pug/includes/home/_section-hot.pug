@@ -1,0 +1,16 @@
+section.sectionHot
+    .container
+        .sectionHeader.sectionHeader--margin20.sectionHeader--MBottom10
+            img(src='img/hot.svg' alt='Меню' class='sectionHeader__logo')
+            h1.sectionHeader__text.sectionHeader__logo--white Горячее предложение
+        .owl-carousel.owl-carousel--hot
+            - var n = 0
+                while  n < 7
+                    a(href="#" class="sectionHot__item")
+                        img(src="img/slider-hot/slide" + ++n + ".jpg" alt="Slide" + n)
+                        .itemOverlay.itemOverlay--hot
+                            h3.itemOverlay__shopName Pizza Time
+                            h4.itemOverlay__name Пицца "Американо"
+                            p.itemOverlay__text Фирменный томатный соус, сыр "Гауда", запеченное куриное филе, бекон, маслины, перец пепперони
+                            p.itemOverlay__cost 120
+                                span грн

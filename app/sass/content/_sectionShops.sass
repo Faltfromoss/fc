@@ -1,0 +1,17 @@
+.sectionShops
+  +bd(white)
+  &Item
+    position: relative
+    width: 100%
+    min-height: 225px
+    background-size: cover
+    background-position: center
+    cursor: pointer
+    &:hover
+      .itemOverlay
+        opacity: .9
+        &:before
+          +stretch(10px)
+    &--bottom30
+      margin-bottom: 30px
+

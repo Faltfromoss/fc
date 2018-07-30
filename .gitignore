@@ -8,7 +8,7 @@ bower_components
 /.idea
 *.ico
 *.png
-app/images
+app/img
 
 # System Files
 Thumbs.db

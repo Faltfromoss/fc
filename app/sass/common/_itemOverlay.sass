@@ -1,0 +1,54 @@
+$animationTime: .3
+.itemOverlay
+  padding: 15px
+  +stretch()
+  +flex-center()
+  background-color: #333
+  opacity: 0
+  +ts($animationTime)
+  &:before
+    content: ''
+    +stretch()
+    border: 1px solid white
+    +ts($animationTime)
+  &__text
+    text-align: center
+    color: $accent
+    +font(PinkBlue, $sz: 50px)
+    letter-spacing: 3px
+    line-height: 1.2
+  &--hot
+    +stretch(10px)
+    +font(PTSans)
+    +flex-center()
+    flex-direction: column
+    color: #ffffff
+    justify-content: flex-start
+    .itemOverlay
+      &__shopName
+        color: $accent
+        +font(PinkBlue, $sz: 25px)
+        align-self: flex-start
+        margin-left: 10px
+        margin-bottom: 10px
+        margin-top: 5px
+      &__name
+        +font(ProximaNova, $s: italic, $w: bold, $sz: 25px)
+      &__text
+        font-size: 12px
+        color: darken(#fff, 15%)
+        font-style: italic
+        line-height: 1.5
+        align-self: flex-end
+        padding: 0 20px
+      &__cost
+        align-self: flex-end
+        font-weight: bold
+        font-size: 22px
+        color: $blue
+        margin-bottom: 10px
+        margin-right: 10px
+        >span
+          font-style: italic
+          margin-left: 3px
+

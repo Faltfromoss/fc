@@ -1,5 +1,6 @@
 
 @import "../../node_modules/bootstrap/scss/bootstrap"
+@import "../../node_modules/owl.carousel/src/scss/owl.carousel"
 
 @import "vars"
 @import "fonts"
@@ -40,25 +41,34 @@ body
 b, strong
   font-weight: bold
 
-// Begin start template styles. Delete it after start working
+.owl-carousel
+  .owl-nav
+    font-size: 65px
+    color: #ffffff
+    line-height: 100%
+    font-weight: 900
+    .owl-prev, .owl-next
+      position: absolute
+      top: 0
+      bottom: 0
+      outline: none
+      +ts(.4, o)
+      &:hover
+        opacity: .6
+    .owl-prev
+      left: 50px
+    .owl-next
+      right: 50px
 
-.wrapper
-  display: flex
-  height: 100vh
-  justify-content: center
-  align-items: center
-
-h1
-  border: 1px solid limegreen
-  padding: 10px
-  font-size: 26px
-  color: green
-
-// End start template styles
 
 @import "header/top-line/menu"
 //@import "header/top-line/search"
-@import "header/top-line/infoLine"
+@import "header/infoLine"
+@import "common/sectionHeader"
+@import "common/itemOverlay"
+@import "content/sectionTop"
+@import "content/sectionShops"
+@import "content/sectionHot"
 
 
 

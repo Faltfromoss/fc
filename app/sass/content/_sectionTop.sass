@@ -1,0 +1,35 @@
+.sectionTop
+  img
+    height: 420px
+  .owl-carousel
+    .owl-dots
+      position: absolute
+      bottom: 20px
+      text-align: center
+      width: 100%
+      .owl-dot
+        width: 30px
+        height: 4px
+        background-color: #fff
+        opacity: .5
+        margin: 3px
+        outline: none
+      .owl-dot.active
+        opacity: 1
+    .owl-nav
+      font-size: 65px
+      color: #ffffff
+      line-height: 100%
+      font-weight: 900
+      .owl-prev, .owl-next
+        position: absolute
+        top: 0
+        bottom: 0
+        outline: none
+        +ts(.4, o)
+        &:hover
+          opacity: .6
+      .owl-prev
+        left: 50px
+      .owl-next
+        right: 50px

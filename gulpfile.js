@@ -6,11 +6,14 @@ const gulpIf = require('gulp-if');
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const pug = require('gulp-pug');
+const log = require('fancy-log');
+const colors = require('ansi-colors');
 const useref = require('gulp-useref');
 const uglify = require('gulp-uglify');
 const postcss = require('gulp-postcss');
 const htmlmin = require('gulp-htmlmin');
 const cache = require('gulp-cache');
+const size = require('gulp-size');
 const imagemin = require('gulp-imagemin');
 const eslint = require('gulp-eslint');
 const runSequence = require('run-sequence');
@@ -58,12 +61,12 @@ function moveJS() {
 
 gulp.task('scripts', () => {
     let assets = [
-        '~jquery',
+        './node_modules/jquery/dist/jquery.js',
         './node_modules/@fortawesome/fontawesome-free/js/all.js',
-        '~owl.carousel'
+        './node_modules/owl.carousel/dist/owl.carousel.js'
     ];
     if(!dev)
-        assets.push('main.js');
+        assets.push('app/js/main.js');
     else
         moveJS();
     return gulp.src(assets)
@@ -71,6 +74,7 @@ gulp.task('scripts', () => {
         .pipe(gulpIf(dev, concat('vendors.js'), concat('main.js')))
         .pipe(gulpIf(dev, sourcemaps.write('./')))
         .pipe(gulp.dest('dist/js'))
+        .pipe(reload({stream: true}));
 });
 
 function lint(files) {
@@ -88,9 +92,9 @@ gulp.task('lint', () => {
 
 
 gulp.task('html', ['views', 'styles', 'scripts'], () => {
-    return gulp.src(['app/*.html', 'dist/*.html'])
-        .pipe(useref({searchPath: ['dist', 'app', '.']}))
+    return gulp.src(['dist/**/*'])
         .pipe(gulpIf(/\.js$/, uglify({compress: {drop_console: true}})))
+        .on('error', function (err) { log(colors.red('[Error]'), err.toString()); })
         .pipe(gulpIf(/\.css$/, postcss([cssnano({safe: true, autoprefixer: false})])))
         .pipe(gulpIf(/\.html$/, htmlmin({
             collapseWhitespace: true,
@@ -106,9 +110,9 @@ gulp.task('html', ['views', 'styles', 'scripts'], () => {
 });
 
 gulp.task('images', () => {
-    return gulp.src('app/images/**/*')
+    return gulp.src('app/img/**/*')
         .pipe(cache(imagemin()))
-        .pipe(gulp.dest('dist/images'));
+        .pipe(gulp.dest('dist/img'));
 });
 
 gulp.task('fonts', () => {
@@ -133,18 +137,21 @@ gulp.task('serve', () => {
             notify: false,
             port: 9000,
             server: {
-                baseDir: ['dist']
+                baseDir: ['dist'],
+                routes: {
+                    "/img": "app/img"
+                }
             }
         });
 
         gulp.watch([
             'app/*.html',
-            'app/js/**/*.js',
             'app/images/**/*'
         ]).on('change', reload);
 
         gulp.watch('app/sass/**/*.sass', ['styles']);
-        gulp.watch('app/**/*.pug', ['views']);
+        gulp.watch('app/js/**/*.js', ['scripts']);
+        gulp.watch(['app/**/*.pug', "app/pug/**/*.pug"], ['views']);
         gulp.watch('app/fonts/**/*', ['fonts']);
     });
 });
@@ -159,8 +166,8 @@ gulp.task('serve:build', ['default'], () => {
     });
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
-    return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
+gulp.task('build', ['html', 'images', 'fonts', 'extras'], () => {
+    return gulp.src('dist/**/*').pipe(size({title: 'build', gzip: true}));
 });
 
 gulp.task('default', () => {

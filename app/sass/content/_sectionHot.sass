@@ -1,0 +1,57 @@
+.sectionHot
+  +bd($blue)
+  background-color: $blue
+  &__item
+    img
+      height: 220px
+      box-shadow:  0 0 15px #000
+      box-sizing: content-box
+    &:hover
+      .itemOverlay
+        opacity: .9
+        &:before
+          +stretch(10px)
+  .owl-item
+    padding: 10px
+  .owl-carousel
+    padding-bottom: 40px
+    &:hover
+      .owl-nav
+        .owl-prev
+          transform: translateX(210px)
+        .owl-next
+          transform: translateX(-210px)
+
+    .owl-dots
+      position: absolute
+      bottom: 20px
+      text-align: center
+      width: 100%
+      .owl-dot
+        width: 8px
+        height: 8px
+        border-radius: 50%
+        background-color: #fff
+        opacity: .5
+        margin: 3px
+        outline: none
+      .owl-dot.active
+        opacity: 1
+    .owl-nav
+      font-size: 50px
+      color: #ffffff
+      line-height: 100%
+      font-weight: 300
+      .owl-prev, .owl-next
+        width: 40px
+        position: absolute
+        top: 0
+        bottom: 40px
+        outline: none
+        +ts(.4)
+        &:hover
+          opacity: .6
+      .owl-prev
+        left: -200px
+      .owl-next
+        right: -200px
