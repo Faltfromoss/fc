@@ -12,3 +12,4 @@ app/img
 
 # System Files
 Thumbs.db
+/yarn-error.log
