@@ -1,5 +1,4 @@
-const del = require('del'),
-    log = require('fancy-log');
+const del = require('del');
 
 module.exports = function () {
     $.gulp.task('images', function () {
@@ -19,7 +18,5 @@ module.exports = function () {
             dot: true
         }).pipe($.gulp.dest('dist'));
     });
-    $.gulp.task('clean', function () {
-        log('Task clean');
-    })
+    $.gulp.task('clean', del.bind(null, ['dist']));
 };
