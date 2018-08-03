@@ -1,9 +1,8 @@
-let tasks = {
-  'scripts': './gulp/tasks/scripts',
-  'styles': './gulp/tasks/styles',
-  'views': './gulp/tasks/views',
-  'lint': './gulp/tasks/lint',
-  'html': './gulp/tasks/html',
-  'clean': './gulp/tasks/otherTasks',
-};
-export default tasks;
+module.exports = [
+  './gulp/tasks/scripts',
+  './gulp/tasks/styles',
+  './gulp/tasks/views',
+  './gulp/tasks/lint',
+  './gulp/tasks/html',
+  './gulp/tasks/otherTasks',
+];

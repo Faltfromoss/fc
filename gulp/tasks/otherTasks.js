@@ -1,4 +1,4 @@
-import del from 'del';
+const del = require('del');
 
 export function images (){
     return $.gulp.src('app/img/**/*')

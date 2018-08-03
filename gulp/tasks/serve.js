@@ -1,11 +1,11 @@
-import {clean, fonts, images, extras} from './otherTasks'
-import views from "./views";
-import scripts from "./scripts";
-import styles from './styles';
-import html from "./html";
-
 export function serve() {
     $.gulp.series(clean(), $.gulp.parallel(views(), styles(), scripts(), fonts()), function () {
+
+    })
+}
+
+module.exports = function(){
+    gulp.task('serve', $.gulp.series('clean', $.gulp.parallel('views', 'styles', 'scripts', 'fonts')), function () {
         $.bs.init({
             notify: false,
             port: 9000,
@@ -26,11 +26,5 @@ export function serve() {
         $.gulp.watch(['app/**/*.pug', "app/pug/**/*.pug"], ['views']);
         $.gulp.watch('app/fonts/**/*', ['fonts']);
     })
-}
-
-let build = $.gulp.series($.gulp.parallel(html, images(), fonts(), extras()), function () {
-    return $.gulp.src('dist/**/*').pipe($.gp.size({title: 'build', gzip: true}));
-});
-
-export default build;
+};
 

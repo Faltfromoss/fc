@@ -6,7 +6,9 @@ function lintJS(files) {
         .pipe($.gp.if(!$.bs.active, $.gp.eslint.failAfterError()));
 }
 
-export function lint () {
-    return lintJS('app/js/**/*.js')
-        .pipe($.gulp.dest('app/js'));
-}
+module.exports = function () {
+    $.gulp.task('lint', function () {
+        return lintJS('app/js/**/*.js')
+            .pipe($.gulp.dest('app/js'));
+    })
+};
