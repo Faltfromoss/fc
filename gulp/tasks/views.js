@@ -1,4 +1,4 @@
-module.exports = function () {
+module.exports = function (dev) {
     $.gulp.task('views', function () {
         return $.gulp.src('app/*.pug')
             .pipe($.gp.plumber())

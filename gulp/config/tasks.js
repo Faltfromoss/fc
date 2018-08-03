@@ -5,4 +5,6 @@ module.exports = [
   './gulp/tasks/lint',
   './gulp/tasks/html',
   './gulp/tasks/otherTasks',
+  './gulp/tasks/build',
+  './gulp/tasks/serve',
 ];

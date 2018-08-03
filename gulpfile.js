@@ -1,16 +1,21 @@
 'use strict';
 
 global.$ = {
-    gulp: import('gulp'),
-    gp: import('gulp-load-plugins'),
-    bs: import('browser-sync').create()
+    gulp: require('gulp'),
+    gp: require('gulp-load-plugins')(),
+    bs: require('browser-sync').create(),
+    autoprefixer: require('autoprefixer')
 };
+
 var dev = true;
 var tasks = require('./gulp/config/tasks');
 tasks.forEach(function (taskPath) {
    require(taskPath)(dev);
 });
 
-$.gulp.task('default', function () {
-
+$.gulp.task('default', () => {
+    return new Promise(resolve => {
+        dev = false;
+        $.gulp.series('clean', 'build', resolve);
+    });
 });
