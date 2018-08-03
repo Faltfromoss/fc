@@ -1,0 +1,31 @@
+include _menuItems
+
+.navInfo
+    .container
+        .row
+            .col-md-6
+                nav.footerMenu
+                    ul.footerMenu__list
+                        each item, index in menuItems
+                            if index === 0
+                                - var active = 'footerMenu__item--active'
+                            else
+                                - active = ''
+                            li(class = ['footerMenu__item'] class = active)
+                                a.footerMenu__link(href="#") #{item}
+
+            .col-md-3
+                .info
+                    .info__icon.info__icon--MRight
+                        i.fas.fa-map-marker-alt
+                    .info__description.text-center
+                        p (068) 400-40-58
+                        p (063) 132-10-80
+            .col-md-3
+                .info
+                    .info__icon.info__icon--MRight
+                        i.far.fa-clock
+                    .info__description.text-center
+                        p Ежедневно
+                        p с 10:00 до 22:00
+.copyright © Food-courier 2018 г

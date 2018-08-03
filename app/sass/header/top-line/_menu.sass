@@ -6,9 +6,8 @@
   align-items: center
   height: 45px
 
-.header--topMenu
+.topMenu
   text-transform: uppercase
-.menu
   +font(PT_Sans, $sz: 14px)
   letter-spacing: 1px
   height: 45px
@@ -20,16 +19,15 @@
   &__item
     +ts(.3, bgc)
     background-color: white
+    cursor: pointer
     padding-left: 20px
     padding-right: 20px
+    border: 1px solid rgba(112, 112, 112, 0.3)
     &:hover
-      cursor: pointer
       background-color: $accent
-      .menu__link
+      .topMenu__link
         text-decoration: none
         color: white
-    &--topMenu
-      border: 1px solid rgba(112, 112, 112, 0.3)
   &__link
     line-height: 45px
     color: #000
@@ -41,3 +39,5 @@
     background-color: $accent
     .menu__link
       color: white
+
+

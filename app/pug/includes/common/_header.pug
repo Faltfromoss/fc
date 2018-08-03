@@ -1,17 +1,17 @@
+include _menuItems
 header
     .topLine.container-fluid
         .topLineContainer.container
-            nav.menu.header--topMenu
-                ul.menu__list
-                    li.menu__item.menu__item--active.menu__item--topMenu
-                        a.menu__link(href="#") О нас
-                    li.menu__item.menu__item--topMenu
-                        a.menu__link(href="#") Наши партнёры
-                        i.fas.fa-angle-down
-                    li.menu__item.menu__item--topMenu
-                        a.menu__link(href="#") Доставка
-                    li.menu__item.menu__item--topMenu
-                        a.menu__link(href="#") Контакты
+            nav.topMenu
+                ul.topMenu__list
+                    each item, index in menuItems
+                        if index === 0
+                            - var active = 'topMenu__item--active'
+                        else
+                            - active = ''
+                        li(class = ['topMenu__item'] class = active)
+                            a.topMenu__link(href="#") #{item}
+
             //include _searchForm
     .infoLine.header--infoLine
         .container
