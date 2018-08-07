@@ -33,5 +33,51 @@ $(function () {
         }
     });
 
+    var icon = $('.hamburger');
+
+    icon.click(function () {
+        $(this).toggleClass('is-active')
+    });
+
+    var mobileMenu = $('.mobileMenu');
+
+    mobileMenu.mmenu({
+        "extensions": [
+            "pagedim-black",
+            "shadow-page",
+            "theme-dark"
+        ],
+        "navbar": {
+            title: "Меню"
+        }
+    }, {
+        //configuration
+        offCanvas: {
+            pageSelector: ".page"
+        },
+        classNames: {
+            selected: 'mobileMenu__item--active'
+        }
+    });
+
+    $(document).ready(function () {
+        var API = mobileMenu.data('mmenu');
+
+        icon.on( "click", function() {
+            API.open();
+        });
+
+        API.bind( "open:finish", function() {
+            setTimeout(function() {
+                icon.addClass( "is-active" );
+            }, 100);
+        });
+        API.bind( "close:finish", function() {
+            setTimeout(function() {
+                icon.removeClass( "is-active" );
+            }, 100);
+        });
+    });
+
 
 });

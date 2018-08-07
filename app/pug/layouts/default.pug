@@ -3,9 +3,10 @@ html(lang="")
     head
         include ../includes/common/_head
     body
-        block content
-        if dev
-            script(src="js/vendors.js")
-        script(src="js/main.js")
-        footer
-            include ../includes/common/footer
+        .page
+            block content
+            if dev
+                script(src="js/vendors.js")
+            script(src="js/main.js")
+            footer
+                include ../includes/common/footer

@@ -7,7 +7,8 @@ module.exports = function (dev) {
       let assets = [
           './node_modules/jquery/dist/jquery.js',
           './node_modules/@fortawesome/fontawesome-free/js/all.js',
-          './node_modules/owl.carousel/dist/owl.carousel.js'
+          './node_modules/owl.carousel/dist/owl.carousel.js',
+          './node_modules/jquery.mmenu/dist/jquery.mmenu.all.js'
       ];
       if(!dev)
           assets.push('app/js/main.js');

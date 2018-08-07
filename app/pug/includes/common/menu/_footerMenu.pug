@@ -1,0 +1,9 @@
+nav.footerMenu
+    ul.footerMenu__list
+        each item, index in menuItems
+            if index === 0
+                - var active = 'footerMenu__item--active'
+            else
+                - active = ''
+            li(class = ['footerMenu__item'] class = active)
+                a.footerMenu__link(href="#") #{item}

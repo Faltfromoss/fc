@@ -1,0 +1,9 @@
+nav.topMenu
+    ul.topMenu__list
+        each item, index in menuItems
+            if index === 0
+                - var active = 'topMenu__item--active'
+            else
+                - active = ''
+            li(class = ['topMenu__item'] class = active)
+                a.topMenu__link(href="#") #{item}

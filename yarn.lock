@@ -3360,6 +3360,10 @@ gzip-size@^4.1.0:
     duplexer "^0.1.1"
     pify "^3.0.0"
 
+hamburgers@^0.9.3:
+  version "0.9.3"
+  resolved "https://registry.yarnpkg.com/hamburgers/-/hamburgers-0.9.3.tgz#73b3d299652a028647ca68b2957df172c76cc636"
+
 har-schema@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/har-schema/-/har-schema-1.0.5.tgz#d263135f43307c02c602afc8fe95970c0151369e"
@@ -4056,6 +4060,10 @@ jpegtran-bin@^3.0.0:
     bin-build "^2.0.0"
     bin-wrapper "^3.0.0"
     logalot "^2.0.0"
+
+jquery.mmenu@^7.0.6:
+  version "7.0.6"
+  resolved "https://registry.yarnpkg.com/jquery.mmenu/-/jquery.mmenu-7.0.6.tgz#544178a510d0af072e557ccdd2479d0c231ae401"
 
 jquery@>=1.8.3, jquery@^3.3.1:
   version "3.3.1"
