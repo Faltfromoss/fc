@@ -8,22 +8,21 @@ header
                     .hamburger-inner
             include menu/_topMenu
             //include _searchForm
-    .infoLine.header--infoLine
-        .container
-            .row
-                .col-md-4
-                    include _logo
-                .col-md-4
-                    .info
-                        .info__icon.info__icon--MRight
-                            i.fas.fa-map-marker-alt
-                        .info__description.text-center
-                            p Доставка еды по л/б
-                            p г. Каменское
-                .col-md-4
-                    .info
-                        .info__icon.info__icon--MRight
-                            i.far.fa-clock
-                        .info__description.text-center
-                            p Ежедневно
-                            p с 10:00 до 22:00
+    .container
+        .row.infoLine.justify-content-around
+            .col-3.col-lg-auto.d-none.d-md-flex.align-items-center.justify-content-center
+                img.infoLine__logo(src='img/svg/logo2.svg')
+            .col.info
+                .info__icon.info__icon--MRight
+                    i.fas.fa-map-marker-alt
+                .info__description.text-center
+                    p Доставка еды по л/б
+                    p г. Каменское
+
+            .col.info
+                .info__icon.info__icon--MRight
+                    i.far.fa-clock
+                .info__description.text-center
+                    p Ежедневно
+                    p с 10:00 до 22:00
+

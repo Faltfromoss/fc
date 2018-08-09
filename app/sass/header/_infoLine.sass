@@ -3,12 +3,11 @@ $icons-size: 44px
 .infoLine
   height: 90px
   &__logo
-    height: 90px
+    height: 60px
 .info
   display: flex
   justify-content: center
   align-items: center
-  height: 100%
   &__icon
     width: $icons-size
     height: $icons-size
@@ -28,4 +27,7 @@ $icons-size: 44px
     p
       margin: 0
 
-
++media-breakpoint-down(md)
+  .infoLine__logo
+    height: 40px
+    margin: 0 auto

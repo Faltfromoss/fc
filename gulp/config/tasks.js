@@ -7,4 +7,5 @@ module.exports = [
   './gulp/tasks/otherTasks',
   './gulp/tasks/build',
   './gulp/tasks/serve',
+  // './gulp/tasks/svg',
 ];
