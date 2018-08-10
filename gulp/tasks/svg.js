@@ -1,22 +1,17 @@
-module.exports = function (dev) {
+module.exports = function () {
     $.gulp.task('svg', function () {
-        return $.gulp.src('./app/img/svg/hot.svg')
+        return $.gulp.src('./app/img/svg/*.svg')
             .pipe($.gp.svgmin({
                 js2svg: {
                     pretty: true
-                }
-            }))
-            .pipe($.gp.cheerio({
-                run: function ($, file) {
-                    $('[fill]').removeAttr('fill');
-                    $('[stroke]').removeAttr('stroke');
-                    $('[style]').removeAttr('style');
                 },
-                parserOptions: {
-                    xmlMode: true
-                }
+                plugins: [{
+                    removeAttrs: {
+                        attrs: ['fill', 'stroke', 'style']
+                    }
+                }]
             }))
-            .pipe($.gp.replace('&gt;', '>'))
+            // .pipe($.gp.replace('&gt;', '>'))
             .pipe($.gp.svgSprite({
                 mode: {
                     symbol: {
