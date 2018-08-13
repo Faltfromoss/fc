@@ -1,0 +1,27 @@
+include menu/_menuItems
+include menu/_mobileMenu
+header
+    .topLine.container-fluid
+        .topLineContainer.container
+            .hamburger.hamburger--spin
+                .hamburger-box
+                    .hamburger-inner
+            include menu/_topMenu
+            //include _searchForm
+    .container
+        .row.infoLine.justify-content-around
+            .col-3.col-lg-auto.d-none.d-md-flex.align-items-center.justify-content-center
+                +icon('logo', 'infoLine__logo')
+            .col.info
+                .info__icon.info__icon--MRight
+                    i.fas.fa-map-marker-alt
+                .info__description.text-center
+                    p Доставка еды по л/б
+                    p г. Каменское
+            .col.info
+                .info__icon.info__icon--MRight
+                    i.far.fa-clock
+                .info__description.text-center
+                    p Ежедневно
+                    p с 10:00 до 22:00
+

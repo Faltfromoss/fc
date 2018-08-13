@@ -1,15 +1,5 @@
-# dependencies
 node_modules
-bower_components
-
-# compiled output
-/dist
-/.tmp
-/.idea
-*.ico
-*.png
-app/img
-
-# System Files
-Thumbs.db
-/yarn-error.log
+build
+.idea
+.gulp
+/app/static/

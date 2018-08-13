@@ -1,0 +1,12 @@
+extends ../layout/main
+
+block variables
+	- var title = 'Главная страница'
+	- var pageClass = 'index-page'
+	- var devOpt = dev
+
+block content
+	include index/_section-top
+	include index/_section-shops
+	include index/_section-hot
+	include index/_section-causes

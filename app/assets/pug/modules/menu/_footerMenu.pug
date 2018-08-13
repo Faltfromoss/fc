@@ -1,0 +1,9 @@
+nav.footerMenu
+    ul.footerMenu__list
+        each item, index in nav.navPages
+            if index === "О нас"
+                - var active = 'footerMenu__item--active'
+            else
+                - active = ''
+            li(class = ['footerMenu__item', active])
+                a.footerMenu__link(href=item) #{index}

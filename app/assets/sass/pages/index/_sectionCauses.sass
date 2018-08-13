@@ -1,0 +1,40 @@
+.sectionCauses
+  +bd(white)
+  &--sectionHeader
+    font-size: 28px
+    font-weight: bold
+    text-transform: uppercase
+  .col-md-4
+    &:last-child
+      .causesItem
+        &:after
+          display: none
+.causesItem
+  display: flex
+  justify-content: space-around
+  align-items: center
+  flex-direction: column
+  position: relative
+  padding: 0 10px 0
+  &:after
+    content: ''
+    position: absolute
+    width: 1px
+    bottom: 0
+    right: -11px
+    height: 150px
+    background-color: $accent
+  &__logo
+    width: 80px
+    height: 60px
+    &--orange
+      fill: $accent
+  &__header
+    +font(ProximaNova, $sz: 22px, $w: bold)
+    margin-top: 10px
+  &__text
+    font-size: 16px
+    font-style: italic
+    color: lighten(#030303, 35%)
+    text-align: center
+    line-height: 1.4

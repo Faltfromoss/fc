@@ -1,0 +1,9 @@
+nav.topMenu
+    ul.topMenu__list
+        each item, index in nav.navPages
+            if index === "О нас"
+                - var active = 'topMenu__item--active'
+            else
+                - active = ''
+            li(class = ['topMenu__item', active])
+                a.topMenu__link(href=item) #{index}

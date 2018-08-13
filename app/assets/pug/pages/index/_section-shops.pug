@@ -1,0 +1,22 @@
+-
+    var values = {
+        'Pizza Time': 'pizzaTime.jpg',
+        'Burger Club': 'burgerClub.jpg',
+        'Craft Burgers': 'craftBurgers.jpg',
+        'Kruta': 'kruta.jpg',
+        'Sushi-Pizza': 'sushi-pizza.jpg',
+        'Chelentano': 'chelentano.png'
+    }
+
+section.sectionShops
+    .sectionHeader.sectionHeader--margin20
+        +icon('menu', 'sectionHeader__logo sectionHeader__logo--orange')
+        h2.sectionHeader__text.sectionHeader__logo--black Выберите заведение
+    .container
+        .row
+            each img, key in values
+                - var innerStyle = "background-image: url(static/img/shops/" + img + ")"
+                .col-md-4
+                    .sectionShopsItem.sectionShopsItem--bottom30(style = innerStyle)
+                        .itemOverlay
+                            .itemOverlay__text #{key}

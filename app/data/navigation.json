@@ -1,0 +1,22 @@
+{
+  "navPages": {
+    "О нас" : "about.html",
+    "Наши партнёры" : "partners.html",
+    "Доставка" : "delivery.html",
+    "Оплата" : "payment.html",
+    "Контакты" : "contacts.html"
+  },
+  "mobileMenuItems": {
+    "О нас" : "about.html",
+    "Наши партнёры" : {
+      "Burger Club": "burgerClub.html",
+      "Pizza Time": "pizzaTime.html",
+      "Kruta": "kruta.html",
+      "Sushi-Pizza": "sushiPizza.html",
+      "Chelentano": "chelentano.html"
+    },
+    "Доставка" : "delivery.html",
+    "Оплата" : "payment.html",
+    "Контакты" : "contacts.html"
+  }
+}

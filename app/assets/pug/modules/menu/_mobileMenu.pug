@@ -1,0 +1,14 @@
+nav.mobileMenu
+    ul
+        each link, index in nav.mobileMenuItems
+            if typeof link === "object"
+                - var sub = index
+                li
+                    span #{sub}
+                    ul
+                        each link, index in nav.mobileMenuItems[sub]
+                            li
+                                a.mobileMenu__link(href=link) #{index}
+            else
+                li
+                    a.mobileMenu__link(href=link) #{index}
