@@ -1,19 +1,21 @@
 $(document).ready(function () {
     svg4everybody({});
 
+// owlCarousel start
     var main_owl_settings = {
         loop: true,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 1000,
         autoplayTimeout: 7000,
         autoplayHoverPause: true,
         navSpeed: 1000,
         dotsSpeed: 1000,
+        responsiveClass: true,
         responsive: {
             0: {
                 nav: false
             },
-            1200: {
+            992: {
                 nav: true
             }
         }
@@ -34,6 +36,10 @@ $(document).ready(function () {
             $(this).text(text);
         }
     });
+
+// owlCarousel end
+
+// jQuery mmenu start
 
     var icon = $('.hamburger');
 
@@ -62,22 +68,21 @@ $(document).ready(function () {
         }
     });
 
-    $(document).ready(function () {
-        var API = mobileMenu.data('mmenu');
+    var API = mobileMenu.data('mmenu');
 
-        icon.on( "click", function() {
-            API.open();
-        });
-
-        API.bind( "open:finish", function() {
-            setTimeout(function() {
-                icon.addClass( "is-active" );
-            }, 100);
-        });
-        API.bind( "close:finish", function() {
-            setTimeout(function() {
-                icon.removeClass( "is-active" );
-            }, 100);
-        });
+    icon.on( "click", function() {
+        API.open();
     });
+
+    API.bind( "open:finish", function() {
+        setTimeout(function() {
+            icon.addClass( "is-active" );
+        }, 100);
+    });
+    API.bind( "close:finish", function() {
+        setTimeout(function() {
+            icon.removeClass( "is-active" );
+        }, 100);
+    });
+// jQuery mmenu end
 });

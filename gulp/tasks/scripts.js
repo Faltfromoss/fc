@@ -6,16 +6,25 @@ module.exports = function() {
         './node_modules/owl.carousel/dist/owl.carousel.js',
         './node_modules/jquery.mmenu/dist/jquery.mmenu.all.js'
     ];
-    if(!$.dev){
-        libs.push($.assetsPath.src.js + 'main.js')
-    }
+
+    var minify = false,
+        uglify = false;
+
     $.gulp.task('scripts', () => {
-        if($.dev)
+        if($.dev) {
+            console.log('copyJS');
             copyJS();
+        }
+        else{
+            libs.push($.assetsPath.src.js + 'main.js');
+            minify = true;
+            uglify = true;
+        }
         return $.gulp.src(libs)
             .pipe($.gp.if($.dev, $.gp.sourcemaps.init()))
+            .pipe($.gp.if(minify, $.gp.minify()))
             .pipe($.gp.if($.dev, $.gp.concat('libs.js'), $.gp.concat('main.js')))
-            .pipe($.gp.if($.dev, $.gp.uglifyjs()))
+            .pipe($.gp.if(uglify, $.gp.uglifyjs()))
             .pipe($.gp.if($.dev, $.gp.sourcemaps.write('./')))
             .pipe($.gulp.dest($.assetsPath.build.js))
             .pipe($.gp.if($.dev, $.browserSync.reload({
