@@ -1,12 +1,11 @@
 $icons-size: 44px
 
 .infoLine
-  height: 90px
+  min-height: 90px
   &__logo
     fill: $accent
     height: 70px
-    #logo
-      height: 100px
+    +font($VS)
 
 .info
   display: flex
@@ -31,7 +30,11 @@ $icons-size: 44px
     p
       margin: 0
 
-+media-breakpoint-down(md)
-  .infoLine__logo
-    //height: 40px
-    //margin: 0 auto
++media-breakpoint-down(xs)
+  .info
+    margin-bottom: 10px
+    &Line
+      padding: 10px 0
+    &__description
+      font-size: 14px
+      line-height: 1.4

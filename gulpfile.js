@@ -33,14 +33,10 @@ $.gulp.task('dev', $.gulp.series(
     'clean',
     $.gulp.parallel('styles', 'pug', 'scripts', 'svg')));
 
-$.gulp.task('build', ()=>{
-    return new Promise(resolve => {
-        $.dev = false;
-        $.gulp.series(
-            'clean',
-            $.gulp.parallel('styles', 'pug', 'scripts', 'svg', 'img', 'fonts'));
-    })
-});
+$.gulp.task('build',  $.gulp.series(
+    'cleanBuild',
+    $.gulp.parallel('styles', 'pug', 'scripts', 'svg', 'img', 'fonts')));
+
 
 $.gulp.task('default', $.gulp.series(
     'dev',
