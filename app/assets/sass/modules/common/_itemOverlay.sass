@@ -23,7 +23,7 @@ $animationTime: .3
     +flex-center()
     flex-direction: column
     color: #ffffff
-    justify-content: flex-start
+    justify-content: space-around
     .itemOverlay
       &__shopName
         color: $accent
@@ -52,3 +52,7 @@ $animationTime: .3
           font-style: italic
           margin-left: 3px
 
++media-breakpoint-up(lg)
+  .itemOverlay
+    &--hot
+      justify-content: flex-start

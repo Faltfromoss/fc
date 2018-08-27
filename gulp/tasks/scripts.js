@@ -4,7 +4,8 @@ module.exports = function() {
         './node_modules/svg4everybody/dist/svg4everybody.min.js',
         './node_modules/@fortawesome/fontawesome-free/js/all.js',
         './node_modules/owl.carousel/dist/owl.carousel.js',
-        './node_modules/jquery.mmenu/dist/jquery.mmenu.all.js'
+        './node_modules/jquery.mmenu/dist/jquery.mmenu.all.js',
+        './node_modules/jquery.mmenu/dist/addons/fixedelements/jquery.mmenu.fixedelements.js'
     ];
 
     var minify = false,
@@ -12,7 +13,6 @@ module.exports = function() {
 
     $.gulp.task('scripts', () => {
         if($.dev) {
-            console.log('copyJS');
             copyJS();
         }
         else{

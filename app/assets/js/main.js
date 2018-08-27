@@ -25,7 +25,15 @@ $(document).ready(function () {
         items: 1
     }));
     $(".owl-carousel--hot").owlCarousel($.extend(true, {}, main_owl_settings ,{
-        items: 3
+        items: 3,
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 2
+            }
+        }
     }));
     $(".itemOverlay--hot>.itemOverlay__text").each(function () {
         var text = $(this).text();
