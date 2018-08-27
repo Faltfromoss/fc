@@ -1,11 +1,13 @@
 .topLine
   background-color: $blue
-.topLineContainer
-  display: flex
-  justify-content: space-between
-  align-items: center
-  height: 45px
-
+  padding-top: 7px
+  padding-bottom: 7px
+  padding-left: 0
+  &Container
+    display: block
+    justify-content: space-between
+    align-items: center
+    height: 45px
 .topMenu
   text-transform: uppercase
   +font(PT_Sans, $sz: 14px)
@@ -41,3 +43,7 @@
     .topMenu__link
       color: white
 
++media-breakpoint-up(md)
+  .topLine
+    padding-bottom: 0
+    padding-top: 0
