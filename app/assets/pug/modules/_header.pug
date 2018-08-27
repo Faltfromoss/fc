@@ -1,26 +1,30 @@
 include menu/_mobileMenu
 header
     .topLine.container-fluid
-        .topLineContainer.container
-            .hamburger.hamburger--spin
-                .hamburger-box
-                    .hamburger-inner
+        .topLineContainer.container.d-block.d-md-flex
+            .topLine__mobile.d-flex.d-md-none.justify-content-start.align-items-center
+                .topLine__hamburger
+                    .hamburger.hamburger--spin
+                        .hamburger-box
+                            .hamburger-inner
+                .topLine__logo.d-flex.justify-content-center.flex-fill
+                    +icon('logo', 'infoLine__logo infoLine__logo--mobile')
             include menu/_topMenu
             //include _searchForm
     .container
-        .row.infoLine.justify-content-end.justify-content-sm-around
-            .col-3.col-lg-auto.d-none.d-md-flex.align-items-center.justify-content-center
+        .row.infoLine.justify-content-end.justify-content-sm-around.no-gutters
+            .col-4.d-none.d-md-flex.align-items-center.justify-content-center
                 +icon('logo', 'infoLine__logo')
-            .col.info
+            .col-12.info.col-xm-6.col-md-4
                 .info__icon.info__icon--MRight
                     i.fas.fa-map-marker-alt
-                .info__description.text-center
+                .info__description
                     p Доставка еды по л/б
                     p г. Каменское
-            .col.info
+            .col-12.info.col-xm-6.col-md-4
                 .info__icon.info__icon--MRight
                     i.far.fa-clock
-                .info__description.text-center
+                .info__description
                     p Ежедневно
                     p с 10:00 до 22:00
 
