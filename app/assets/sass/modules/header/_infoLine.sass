@@ -1,7 +1,9 @@
 $icons-size: 44px
 
 .infoLine
+  position: relative
   min-height: 90px
+  margin-top: 45px
   &__logo
     fill: $accent
     max-height: 70px
@@ -35,6 +37,10 @@ $icons-size: 44px
     text-align: center
     p
       margin: 0
+
++media-breakpoint-down(md)
+  .infoLine
+    margin-top: 55px
 
 +media-breakpoint-down(xs)
   .info

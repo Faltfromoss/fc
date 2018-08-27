@@ -1,5 +1,5 @@
 .navInfo
-  height: 90px
+  min-height: 90px
   display: flex
   align-items: center
   border-top: 1px solid rgba(112, 112, 112, .3)
@@ -10,3 +10,9 @@
   background-color: $blue
   color: white
   font-size: 14px
+
+@media (max-width: 450px)
+  .navInfo
+    display: block
+  .footer--info
+    justify-content: center

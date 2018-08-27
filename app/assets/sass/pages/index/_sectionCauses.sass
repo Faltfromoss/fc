@@ -1,7 +1,6 @@
 .sectionCauses
   +bd(white)
   &--sectionHeader
-    font-size: 28px
     font-weight: bold
     text-transform: uppercase
   .col-md-4
@@ -16,6 +15,7 @@
   flex-direction: column
   position: relative
   padding: 0 10px 0
+  text-align: center
   &:after
     content: ''
     position: absolute
@@ -30,11 +30,25 @@
     &--orange
       fill: $accent
   &__header
-    +font(ProximaNova, $sz: 22px, $w: bold)
     margin-top: 10px
   &__text
     font-size: 16px
     font-style: italic
     color: lighten(#030303, 35%)
-    text-align: center
     line-height: 1.4
+
++media-breakpoint-down(lg)
+  .causesItem
+    &__header
+      padding: 0 20px
++media-breakpoint-down(md)
+  .causesItem
+    &:after
+      display: none
+    &__text
+      padding: 0 40px
+
+@media (max-width: 400px)
+  .causesItem
+    &__text
+      padding: 0

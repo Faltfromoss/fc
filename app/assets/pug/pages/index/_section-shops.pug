@@ -15,8 +15,9 @@ section.sectionShops
     .container
         .row
             each img, key in values
-                - var innerStyle = "background-image: url(static/img/shops/" + img + ")"
-                .col-md-4
-                    .sectionShopsItem.sectionShopsItem--bottom30(style = innerStyle)
-                        .itemOverlay.itemOverlay--radius
+                - var imgPath = "static/img/shops/" + img
+                .col-md-6.col-lg-4
+                    .sectionShopsItem.sectionShopsItem--bottom30
+                        img(src=imgPath).img-responsive
+                        .itemOverlay
                             .itemOverlay__text #{key}
