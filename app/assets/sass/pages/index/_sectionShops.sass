@@ -3,16 +3,15 @@
   &Item
     position: relative
     max-width: 100%
-    min-height: 250px
-    background-size: cover
-    background-position: center
     cursor: pointer
-    border-radius: 30px
+    img
+      border-radius: 30px
     &:hover
       .itemOverlay
         opacity: .9
         &:before
           +stretch(10px)
+
     &--bottom30
       margin-bottom: 30px
 
