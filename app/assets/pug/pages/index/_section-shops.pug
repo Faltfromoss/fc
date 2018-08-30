@@ -1,12 +1,36 @@
 -
-    var values = {
-        'Pizza Time': 'pizzaTime.jpg',
-        'Burger Club': 'burgerClub.jpg',
-        'Craft Burgers': 'craftBurgers.jpg',
-        'Kruta': 'kruta.jpg',
-        'Sushi-Pizza': 'sushi-pizza.jpg',
-        'Chelentano': 'chelentano.png'
-    }
+    var values = [
+        {
+            name: 'Pizza Time',
+            img: 'pizzaTime.jpg',
+            url: 'restaurant.html'
+        },
+        {
+            name: 'Burger Club',
+            img: 'burgerClub.jpg',
+            url: 'burgerclub.html'
+        },
+        {
+            name: 'Craft Burgers',
+            img: 'craftBurgers.jpg',
+            url: 'craftburgers.html'
+        },
+        {
+            name: 'Kruta',
+            img: 'kruta.jpg',
+            url: 'kruta.html'
+        },
+        {
+            name: 'Sushi-Pizza',
+            img: 'sushi-pizza.jpg',
+            url: 'sushi-pizza.html'
+        },
+        {
+            name: 'Chelentano',
+            img: 'chelentano.png',
+            url: 'chelentano.html'
+        }
+    ]
 
 section.sectionShops
     .sectionHeader.sectionHeader--margin20
@@ -14,10 +38,10 @@ section.sectionShops
         h2.sectionHeader__text.sectionHeader__logo--black Выберите заведение
     .container
         .row
-            each img, key in values
-                - var imgPath = "static/img/shops/" + img
+            each key in values
+                - var imgPath = "static/img/shops/" + key.img
                 .col-6.col-lg-4
-                    .sectionShopsItem.sectionShopsItem--bottom30
+                    a(href=key.url).sectionShopsItem.sectionShopsItem--bottom30
                         img(src=imgPath).img-responsive
                         .itemOverlay.itemOverlay--radius
-                            .itemOverlay__text #{key}
+                            .itemOverlay__text #{key.name}
