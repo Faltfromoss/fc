@@ -1,6 +1,6 @@
 module.exports = function() {
     $.gulp.task('svg', () => {
-        return $.gulp.src($.assetsPath.src.svg + '*.svg')
+        return $.gulp.src($.assetsPath.src.svg + '**/*.svg')
             .pipe($.gp.svgmin({
                 js2svg: {
                     pretty: true

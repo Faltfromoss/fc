@@ -18,5 +18,39 @@
     "Доставка" : "delivery.html",
     "Оплата" : "payment.html",
     "Контакты" : "contacts.html"
+  },
+  "foodMenuItems": {
+    "Популярные блюда": {
+      "iconName": "raiting",
+      "url": "popular.html"
+    },
+    "Салаты": {
+      "iconName": "salad",
+      "url": "salads.html"
+    },
+    "Суши": {
+      "iconName": "sushi",
+      "url": "sushi.html"
+    },
+    "Пицца": {
+      "iconName": "pizza",
+      "url": "pizza.html"
+    },
+    "Бургеры": {
+      "iconName": "hamburger",
+      "url": "burgers.html"
+    },
+    "Гриль": {
+      "iconName": "meat",
+      "url": "grille.html"
+    },
+    "Горячие блюда": {
+      "iconName": "soup",
+      "url": "hot-food.html"
+    },
+    "Напитки": {
+      "iconName": "beer",
+      "url": "drinks.html"
+    }
   }
 }
