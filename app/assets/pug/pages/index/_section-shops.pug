@@ -16,8 +16,8 @@ section.sectionShops
         .row
             each img, key in values
                 - var imgPath = "static/img/shops/" + img
-                .col-md-6.col-lg-4
+                .col-6.col-lg-4
                     .sectionShopsItem.sectionShopsItem--bottom30
                         img(src=imgPath).img-responsive
-                        .itemOverlay
+                        .itemOverlay.itemOverlay--radius
                             .itemOverlay__text #{key}
