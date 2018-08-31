@@ -5,7 +5,9 @@ module.exports = function() {
         './node_modules/@fortawesome/fontawesome-free/js/all.js',
         './node_modules/owl.carousel/dist/owl.carousel.js',
         './node_modules/jquery.mmenu/dist/jquery.mmenu.all.js',
-        './node_modules/jquery.mmenu/dist/addons/fixedelements/jquery.mmenu.fixedelements.js'
+        './node_modules/jquery.mmenu/dist/addons/fixedelements/jquery.mmenu.fixedelements.js',
+        './node_modules/bootstrap/js/dist/util.js',
+        './node_modules/bootstrap/js/dist/tab.js'
     ];
 
     var minify = false,

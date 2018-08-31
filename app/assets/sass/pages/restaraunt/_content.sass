@@ -1,0 +1,71 @@
+.shopTitle
+  font-size: 25px
+  font-weight: bold
+  line-height: 1
+
+.nav
+  &-item
+    +main-bd()
+  &-pills
+    background-color: #fff
+  &-link
+    color: black
+    text-transform: uppercase
+    padding: 5px 10px
+    min-width: 160px
+    text-align: center
+    +ts()
+    &.active, &:hover
+      text-decoration: underline
+    &:hover
+      color: #000000
+
+.food
+  &Container
+    position: absolute
+  &Item
+    position: absolute
+    padding: 10px
+    margin-bottom: 20px
+    text-align: center
+    cursor: pointer
+    transform: scale(1)
+    background-color: #fff
+    +ts()
+    &:hover
+      z-index: 1
+      transform: scale(1.05)
+    +main-bd()
+    &__img
+      position: relative
+    &__title
+      font-size: 20px
+      font-weight: bold
+      font-style: italic
+  &Size
+    display: flex
+    justify-content: space-around
+    input
+      display: none
+      &:checked + label
+        background-color: $accent
+    &__item
+      +main-bd()
+      font-size: 14px
+      padding: 1px 12px
+      box-shadow: 0 0 5px #000
+      border-radius: 8px
+      cursor: pointer
+      display: inline-block
+      +ts(.25, bgc)
+      &:hover
+        background-color: $accent
+  &Description
+    display: none
+    &__cost
+      font-style: italic
+      font-weight: bold
+      color: $blue
+    &__text
+      +font($PN, $s: italic, $sz: 14px)
+      line-height: 1.3

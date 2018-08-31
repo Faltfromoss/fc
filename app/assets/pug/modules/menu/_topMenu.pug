@@ -1,6 +1,7 @@
 nav.topMenu
     ul.topMenu__list
-        each item, index in nav.navPages
+        - var menuItems = nav.navPages
+        each item, index in menuItems
             if index === "О нас"
                 - var active = 'topMenu__item--active'
             else

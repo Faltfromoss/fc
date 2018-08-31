@@ -3,8 +3,8 @@
   &__list
     list-style-type: none
   &__item
-    border: 1px solid rgba(#707070, .3)
-    padding: 7px 0 7px 7px
+    +main-bd()
+    padding: 7px
   &__link
     display: flex
     justify-content: flex-start
@@ -15,7 +15,7 @@
     &:hover
       text-decoration: none
   &__icon
-    max-width: 35px
-    max-height: 35px
+    max-width: 30px
+    max-height: 30px
     display: block
     margin-right: 10px

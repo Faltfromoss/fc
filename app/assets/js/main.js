@@ -93,4 +93,20 @@ $(document).ready(function () {
         }, 100);
     });
 // jQuery mmenu end
+
+
+    $('.foodItem').hover(function () {
+        $(this).find('.foodDescription').slideDown(200);
+    }, function () {
+        $(this).find('.foodDescription').slideUp(200);
+    });
+
+    $('input[type=radio]:checked').each(function (index, element) {
+        var value = $(element).val();
+        $(element).parent().next().find('.foodDescription__cost').text(value + ' грн');
+    });
+    $('input[type=radio]').click(function (e) {
+        var value = $(this).val();
+        $(this).parent().next().find('.foodDescription__cost').text(value + ' грн');
+    })
 });

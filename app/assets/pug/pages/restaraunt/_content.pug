@@ -2,7 +2,56 @@ include _head
 .container
     .row
         .col-md-3
+        .col-md-9
+            ul#pills-tab.nav.mb-3(role='tablist')
+                li.nav-item
+                    a#pills-home-tab.nav-link.active(data-toggle='pill', href='#pills-menu', role='tab', aria-controls='pills-menu', aria-selected='true') Меню
+                li.nav-item
+                    a#pills-profile-tab.nav-link(data-toggle='pill', href='#pills-about', role='tab', aria-controls='pills-about', aria-selected='false') О заведении
+                li.nav-item
+                    a#pills-contact-tab.nav-link(data-toggle='pill', href='#pills-delivery', role='tab', aria-controls='pills-delivery', aria-selected='false') Условия доставки
+            h2.shopTitle.mb-3 Pizza Time - Популярные блюда
+    .row
+        .col-md-3
             include _food-menu
-        .col-md-3
-        .col-md-3
-        .col-md-3
+        .col-md-9
+            #pills-tabContent.tab-content
+                #pills-menu.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='pills-menu-tab')
+                    .row
+                        -
+                            var items = content.restaraunts.pizzaTime.foodItems.pizza
+                            var i = 1
+                        each item in items
+                            -
+                                var imgSrc = 'static/img/restaraunts/food/pizza/' + i + '.jpg'
+                                var costs = item.cost
+                            .col-md-4
+                                .foodContainer
+                                    .foodItem
+                                        img(src=imgSrc alt='Пицца').foodItem__img.img-responsive
+                                        .foodItem__title.mb-2 #{item.name}
+                                        .foodSize.mb-2
+                                            - var x = 1
+                                            each cost, size in costs
+                                                -
+                                                    var itemId = "size-"+ size + '-' + i
+                                                    var checkedBox = (x===1)
+                                                input(type="radio" name="size" + i checked=checkedBox id=itemId value=cost)
+                                                label(for=itemId).foodSize__item #{size} см
+                                                - x++
+                                        .foodDescription
+                                            .foodDescription__cost.mb-1
+                                            .foodDescription__text #{item.description}
+                                - i++
+
+                //#pills-about.tab-pane.fade(role='tabpanel', aria-labelledby='pills-about-tab')
+                //    .row
+                //        .col-md-4 About
+                //        .col-md-4 About
+                //        .col-md-4    About
+                //#pills-delivery.tab-pane.fade(role='tabpanel', aria-labelledby='pills-delivery-tab')
+                //    .row
+                //        .col-md-4 Delivery
+                //        .col-md-4 Delivery
+                //        .col-md-4 Delivery
+
