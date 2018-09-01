@@ -21,10 +21,10 @@ $(document).ready(function () {
         }
     };
 
-    $(".owl-carousel--top").owlCarousel($.extend(true, {}, main_owl_settings ,{
+    $(".owl-carousel--top").owlCarousel($.extend(true, {}, main_owl_settings, {
         items: 1
     }));
-    $(".owl-carousel--hot").owlCarousel($.extend(true, {}, main_owl_settings ,{
+    $(".owl-carousel--hot").owlCarousel($.extend(true, {}, main_owl_settings, {
         items: 3,
         responsive: {
             0: {
@@ -38,7 +38,7 @@ $(document).ready(function () {
     $(".itemOverlay--hot>.itemOverlay__text").each(function () {
         var text = $(this).text();
         var textLength = 70;
-        if(text.length > textLength){
+        if (text.length > textLength) {
             text = text.substr(0, textLength);
             text += '...';
             $(this).text(text);
@@ -78,28 +78,34 @@ $(document).ready(function () {
 
     var API = mobileMenu.data('mmenu');
 
-    icon.on( "click", function() {
+    icon.on("click", function () {
         API.open();
     });
 
-    API.bind( "open:finish", function() {
-        setTimeout(function() {
-            icon.addClass( "is-active" );
+    API.bind("open:finish", function () {
+        setTimeout(function () {
+            icon.addClass("is-active");
         }, 100);
     });
-    API.bind( "close:finish", function() {
-        setTimeout(function() {
-            icon.removeClass( "is-active" );
+    API.bind("close:finish", function () {
+        setTimeout(function () {
+            icon.removeClass("is-active");
         }, 100);
     });
 // jQuery mmenu end
 
 
-    $('.foodItem').hover(function () {
-        $(this).find('.foodDescription').slideDown(200);
-    }, function () {
-        $(this).find('.foodDescription').slideUp(200);
-    });
+    $('.foodItem').each(function (index, item) {
+        var height = $(item).height();
+        $(item).parent().height(height + 40);
+    })
+        .hover(function () {
+            $(this).css('z-index', '1');
+            $(this).find('.foodDescription').slideDown(200);
+        }, function () {
+            $(this).find('.foodDescription').slideUp(200);
+            $(this).css('z-index', '0');
+        });
 
     $('input[type=radio]:checked').each(function (index, element) {
         var value = $(element).val();

@@ -17,41 +17,8 @@ include _head
         .col-md-9
             #pills-tabContent.tab-content
                 #pills-menu.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='pills-menu-tab')
-                    .row
-                        -
-                            var items = content.restaraunts.pizzaTime.foodItems.pizza
-                            var i = 1
-                        each item in items
-                            -
-                                var imgSrc = 'static/img/restaraunts/food/pizza/' + i + '.jpg'
-                                var costs = item.cost
-                            .col-md-4
-                                .foodContainer
-                                    .foodItem
-                                        img(src=imgSrc alt='Пицца').foodItem__img.img-responsive
-                                        .foodItem__title.mb-2 #{item.name}
-                                        .foodSize.mb-2
-                                            - var x = 1
-                                            each cost, size in costs
-                                                -
-                                                    var itemId = "size-"+ size + '-' + i
-                                                    var checkedBox = (x===1)
-                                                input(type="radio" name="size" + i checked=checkedBox id=itemId value=cost)
-                                                label(for=itemId).foodSize__item #{size} см
-                                                - x++
-                                        .foodDescription
-                                            .foodDescription__cost.mb-1
-                                            .foodDescription__text #{item.description}
-                                - i++
-
-                //#pills-about.tab-pane.fade(role='tabpanel', aria-labelledby='pills-about-tab')
-                //    .row
-                //        .col-md-4 About
-                //        .col-md-4 About
-                //        .col-md-4    About
-                //#pills-delivery.tab-pane.fade(role='tabpanel', aria-labelledby='pills-delivery-tab')
-                //    .row
-                //        .col-md-4 Delivery
-                //        .col-md-4 Delivery
-                //        .col-md-4 Delivery
-
+                    include tabs/_menu
+                #pills-about.tab-pane.fade(role='tabpanel', aria-labelledby='pills-about-tab')
+                    include tabs/_about
+                #pills-delivery.tab-pane.fade(role='tabpanel', aria-labelledby='pills-delivery-tab')
+                    include tabs/_delivery

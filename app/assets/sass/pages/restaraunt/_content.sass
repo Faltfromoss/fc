@@ -22,7 +22,7 @@
 
 .food
   &Container
-    position: absolute
+    position: relative
   &Item
     position: absolute
     padding: 10px
@@ -33,7 +33,6 @@
     background-color: #fff
     +ts()
     &:hover
-      z-index: 1
       transform: scale(1.05)
     +main-bd()
     &__img
@@ -44,7 +43,7 @@
       font-style: italic
   &Size
     display: flex
-    justify-content: space-around
+    justify-content: center
     input
       display: none
       &:checked + label
@@ -57,9 +56,12 @@
       border-radius: 8px
       cursor: pointer
       display: inline-block
+      margin-right: 10px
       +ts(.25, bgc)
       &:hover
         background-color: $accent
+      &:last-child
+        margin-right: 0
   &Description
     display: none
     &__cost
