@@ -1,9 +1,8 @@
 {
   "navPages": {
+    "Главная": "index.html",
     "О нас" : "about.html",
     "Наши партнёры" : "partners.html",
-    "Доставка" : "delivery.html",
-    "Оплата" : "payment.html",
     "Контакты" : "contacts.html"
   },
   "mobileMenuItems": {
