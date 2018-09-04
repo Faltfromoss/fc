@@ -71,3 +71,63 @@
     &__text
       +font($PN, $s: italic, $sz: 14px)
       line-height: 1.3
+
+
+.about
+  +main-bd()
+  padding: 20px
+  &__description
+    font-size: 18px
+    font-weight: bold
+    line-height: 1.2
+.googleMap
+  position: relative
+  padding-top: 50%
+  &__frame
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+
+.terms
+  &__title
+    font-size: 25px
+    text-align: center
+    font-weight: bold
+  &Item
+    display: flex
+    flex-direction: column
+    justify-content: center
+    &__title
+      text-align: center
+      font-size: 18px
+      font-weight: bold
+    &__icon
+      width: 35px
+      height: 35px
+      fill: $blue
+    &__cost
+      color: $blue
+      font-size: 25px
+      font-style: italic
+      font-weight: bold
+.deliveryDescItem
+  display: flex
+  flex-direction: column
+  text-align: center
+  align-items: center
+  &__cost
+    color: $blue
+    font-size: 25px
+    font-style: italic
+    font-weight: bold
+  &__regions
+    font-weight: bold
+    font-size: 20px
+  &__streets
+    text-align: left
+    font-size: 16px
+    font-style: italic
+    p
+      margin-bottom: 0
+      line-height: 1.4

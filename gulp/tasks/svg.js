@@ -13,6 +13,11 @@ module.exports = function() {
             }))
             .pipe($.gp.replace('&gt;', '>'))
             .pipe($.gp.svgSprite({
+                shape: {
+                  id: {
+                      separator: ''
+                  }
+                },
                 mode: {
                     symbol: {
                         sprite: "sprite.svg"

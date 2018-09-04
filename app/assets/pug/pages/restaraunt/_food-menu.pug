@@ -3,5 +3,5 @@ nav.foodMenu
         each item, index in nav.foodMenuItems
             li.foodMenu__item
                 a.foodMenu__link(href=item.url)
-                    +icon('foodMenuIcons--' + nav.foodMenuItems[index].iconName,   'foodMenu__icon')
+                    +icon(nav.foodMenuItems[index].iconName,   'foodMenu__icon')
                     span #{index}

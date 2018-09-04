@@ -5,15 +5,18 @@
   &__item
     +main-bd()
     padding: 7px
+    +ts()
+    &:hover
+      .foodMenu__link
+        text-decoration: none
+        color: #000000
+      background-color: rgba(#000, .1)
   &__link
     display: flex
     justify-content: flex-start
     align-items: center
     color: #000
     text-transform: uppercase
-    +ts()
-    &:hover
-      text-decoration: none
   &__icon
     max-width: 30px
     max-height: 30px
