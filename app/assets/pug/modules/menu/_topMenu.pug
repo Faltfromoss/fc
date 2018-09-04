@@ -1,9 +1,11 @@
 nav.topMenu
     ul.topMenu__list
         - var menuItems = nav.navPages
+        - var first = true
         each item, index in menuItems
-            if index === "О нас"
+            if first === true
                 - var active = 'topMenu__item--active'
+                - first = false
             else
                 - active = ''
             li(class = ['topMenu__item', active])
