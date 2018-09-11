@@ -4,6 +4,7 @@
   line-height: 1
 
 .nav
+  display: inline-flex
   &-item
     +main-bd()
   &-pills
@@ -23,6 +24,7 @@
 .food
   &Container
     position: relative
+    width: 260px
   &Item
     position: absolute
     padding: 10px
@@ -32,8 +34,6 @@
     transform: scale(1)
     background-color: #fff
     +ts()
-    &:hover
-      transform: scale(1.05)
     +main-bd()
     &__img
       position: relative
@@ -43,27 +43,25 @@
       font-style: italic
   &Size
     display: flex
-    justify-content: center
+    justify-content: space-around
+    flex-wrap: wrap
     input
       display: none
       &:checked + label
         background-color: $accent
+        box-shadow: 0 0 5px #000
     &__item
       +main-bd()
       font-size: 14px
       padding: 1px 12px
-      box-shadow: 0 0 5px #000
       border-radius: 8px
       cursor: pointer
       display: inline-block
-      margin-right: 10px
       +ts(.25, bgc)
       &:hover
         background-color: $accent
-      &:last-child
-        margin-right: 0
   &Description
-    display: none
+    display: block
     &__cost
       font-style: italic
       font-weight: bold
@@ -90,6 +88,8 @@
     top: 0
 
 .terms
+  +main-bd()
+  padding: 20px
   &__title
     font-size: 25px
     text-align: center
@@ -131,3 +131,42 @@
     p
       margin-bottom: 0
       line-height: 1.4
+
++media-breakpoint-between(md, lg)
+  .foodSize__item
+    padding: 1px 12px
+    font-size: 12px
++media-breakpoint-up(md)
+  .food
+    &Item:hover
+      transform: scale(1.15)
+        +bd(rgba(#FF9F0F, .4), 2)
+    &Description
+      display: none
+@media (max-width: 768px)
+  .terms
+    &Item
+      margin-bottom: 15px
+      &:last-child
+        margin-bottom: 0
+  .info
+    &__description
+      &--smallFont
+        font-size: 15px
+@media (max-width: 530px)
+  .nav
+    &-link
+      font-size: 14px
+      padding: 4px 7px
+      min-width: 140px
+@media (max-width: 465px)
+  .nav
+    &-link
+      font-size: 12px
+      padding: 4px 5px
+      min-width: 120px
+@media (max-width: 400px)
+  .nav
+    &-link
+      padding: 4px 9px
+      min-width: auto

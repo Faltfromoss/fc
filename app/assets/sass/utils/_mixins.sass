@@ -53,8 +53,8 @@ $shortcuts: (bc: border-color, bgc: background-color, c: color, o: opacity, t: t
   bottom: $padding
 
 // fast border
-@mixin bd($color: black)
-  border: 1px solid #{$color}
+@mixin bd($color: black, $w: 1)
+  border: #{$w}px solid #{$color}
 @mixin main-bd()
   border: 1px solid rgba(#707070, .3)
 // flex-center

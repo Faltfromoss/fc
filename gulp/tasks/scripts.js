@@ -1,6 +1,7 @@
 module.exports = function() {
     var libs = [
         './node_modules/jquery/dist/jquery.js',
+        './node_modules/jquery.documentsize/dist/jquery.documentsize.js',
         './node_modules/svg4everybody/dist/svg4everybody.min.js',
         './node_modules/@fortawesome/fontawesome-free/js/all.js',
         './node_modules/owl.carousel/dist/owl.carousel.js',

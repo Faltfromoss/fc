@@ -1,24 +1,36 @@
 include _head
-.container
-    .row
-        .col-md-3
-        .col-md-9
-            ul#pills-tab.nav.mb-3(role='tablist')
-                li.nav-item
-                    a#pills-home-tab.nav-link.active(data-toggle='pill', href='#pills-menu', role='tab', aria-controls='pills-menu', aria-selected='true') Меню
-                li.nav-item
-                    a#pills-profile-tab.nav-link(data-toggle='pill', href='#pills-about', role='tab', aria-controls='pills-about', aria-selected='false') О заведении
-                li.nav-item
-                    a#pills-contact-tab.nav-link(data-toggle='pill', href='#pills-delivery', role='tab', aria-controls='pills-delivery', aria-selected='false') Условия доставки
-            h2.shopTitle.mb-3 Pizza Time - Популярные блюда
-    .row
-        .col-md-3
-            include _food-menu
-        .col-md-9
-            #pills-tabContent.tab-content
-                #pills-menu.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='pills-menu-tab')
-                    include tabs/_menu
-                #pills-about.tab-pane.fade(role='tabpanel', aria-labelledby='pills-about-tab')
-                    include tabs/_about
-                #pills-delivery.tab-pane.fade(role='tabpanel', aria-labelledby='pills-delivery-tab')
-                    include tabs/_delivery
+.container-fluid.menuButton__container
+    .container
+        .row
+            .col-lg-3
+            .col-lg-9.col-12.text-center.text-lg-left
+                ul#pills-tab.nav.mb-3(role='tablist')
+                    li.nav-item
+                        a#pills-home-tab.nav-link.active(data-toggle='pill', href='#pills-menu', role='tab', aria-controls='pills-menu', aria-selected='true') Меню
+                    li.nav-item
+                        a#pills-profile-tab.nav-link(data-toggle='pill', href='#pills-about', role='tab', aria-controls='pills-about', aria-selected='false') О заведении
+                    li.nav-item
+                        a#pills-contact-tab.nav-link(data-toggle='pill', href='#pills-delivery', role='tab', aria-controls='pills-delivery', aria-selected='false') Условия доставки
+                h2.shopTitle.mb-3.text-center.text-lg-left Pizza Time - Популярные блюда
+        .row
+            .col-lg-3.d-none.d-lg-flex
+                include _food-menu
+            .col-lg-9.col-md-12
+                #pills-tabContent.tab-content
+                    #pills-menu.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='pills-menu-tab')
+                        include tabs/_menu
+                    #pills-about.tab-pane.fade(role='tabpanel', aria-labelledby='pills-about-tab')
+                        include tabs/_about
+                    #pills-delivery.tab-pane.fade(role='tabpanel', aria-labelledby='pills-delivery-tab')
+                        include tabs/_delivery
+
+    div.foodMenu.foodMenu--mobile.d-lg-none
+        ul.foodMenu__list
+            each item, index in nav.foodMenuItems
+                li.foodMenu__item
+                    a.foodMenu__link(href=item.url)
+                        +icon(nav.foodMenuItems[index].iconName,   'foodMenu__icon')
+                        span #{index}
+
+    .menuButton.menuButton--hide.menuButton--fixed.d-lg-none
+        i.fas.fa-clipboard-list

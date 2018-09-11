@@ -1,8 +1,10 @@
 $(document).ready(function () {
     svg4everybody({});
+    let foodMenu = $('.foodMenu--mobile'),
+        menuBtn = $('.menuButton');
 
 // owlCarousel start
-    var main_owl_settings = {
+    let main_owl_settings = {
         loop: true,
         autoplay: true,
         autoplaySpeed: 1000,
@@ -36,8 +38,8 @@ $(document).ready(function () {
         }
     }));
     $(".itemOverlay--hot>.itemOverlay__text").each(function () {
-        var text = $(this).text();
-        var textLength = 70;
+        let text = $(this).text();
+        let textLength = 70;
         if (text.length > textLength) {
             text = text.substr(0, textLength);
             text += '...';
@@ -49,13 +51,13 @@ $(document).ready(function () {
 
 // jQuery mmenu start
 
-    var icon = $('.hamburger');
+    let icon = $('.hamburger');
 
     icon.click(function () {
         $(this).toggleClass('is-active')
     });
 
-    var mobileMenu = $('.mobileMenu');
+    let mobileMenu = $('.mobileMenu');
 
     mobileMenu.mmenu({
         "extensions": [
@@ -76,7 +78,7 @@ $(document).ready(function () {
         }
     });
 
-    var API = mobileMenu.data('mmenu');
+    let API = mobileMenu.data('mmenu');
 
     icon.on("click", function () {
         API.open();
@@ -94,25 +96,97 @@ $(document).ready(function () {
     });
 // jQuery mmenu end
 
-
-    $('.foodItem').each(function (index, item) {
-        var height = $(item).height();
-        $(item).parent().height(height + 40);
-    })
-        .hover(function () {
+    $('.foodItem').hover(function () {
+        if ($(window).width() > 768) {
             $(this).css('z-index', '1');
             $(this).find('.foodDescription').slideDown(200);
-        }, function () {
+        }
+    }, function () {
+        if ($(window).width() > 768) {
             $(this).find('.foodDescription').slideUp(200);
             $(this).css('z-index', '0');
-        });
+        }
+    });
+
+    let foodMenuPositionTop = 0;
+    init();
+
+    let isMenuActive = false;
+    menuBtn.click(function () {
+        if (!isMenuActive) {
+            calcFoodMenuPosition();
+            foodMenu.css({
+                top: foodMenuPositionTop,
+                right: 0
+            });
+            isMenuActive = !isMenuActive;
+            menuBtn.addClass('menuButton--hide');
+        }
+    });
+
+    let isMenuBtnActive = false;
+    let isMenuBtnFixed = true;
+    $(window).scroll(function () {
+        if($('#pills-menu').hasClass('active')){
+            let topContainerOffset = $('.menuButton__container').offset().top;
+            let scrollTop = $(document).scrollTop();
+            let topWayPoint = topContainerOffset - $('.topLine').outerHeight();
+            let footerScroll = $('footer').offset().top - $.windowHeight();
+            if (!isMenuBtnActive && scrollTop >= topWayPoint && !isMenuActive) {
+                menuBtn.removeClass('menuButton--hide');
+                isMenuBtnActive = !isMenuBtnActive;
+            }
+            else if (isMenuBtnActive && scrollTop <= topWayPoint) {
+                menuBtn.addClass('menuButton--hide');
+                isMenuBtnActive = !isMenuBtnActive;
+            }
+            if (isMenuBtnFixed && scrollTop >= footerScroll) {
+                menuBtn.removeClass('menuButton--fixed');
+                isMenuBtnFixed = !isMenuBtnFixed;
+            } else if (!isMenuBtnFixed && scrollTop <= footerScroll) {
+                menuBtn.addClass('menuButton--fixed');
+                isMenuBtnFixed = !isMenuBtnFixed;
+            }
+        }
+    });
+
+    $(document).mouseup(function (e) {
+        if($('#pills-menu').hasClass('active')){
+            if (menuBtn.is(e.target) || menuBtn.has(e.target).length > 0)
+                return;
+            if (!foodMenu.is(e.target) && foodMenu.has(e.target).length === 0 && isMenuActive !== false) {
+                foodMenu.css('right', -300);
+                isMenuActive = !isMenuActive;
+                menuBtn.removeClass('menuButton--hide');
+            }
+        }
+    });
+
+    $(window).resize(function () {
+        menuItemHeightInit();
+    });
 
     $('input[type=radio]:checked').each(function (index, element) {
-        var value = $(element).val();
+        let value = $(element).val();
         $(element).parent().next().find('.foodDescription__cost').text(value + ' грн');
     });
-    $('input[type=radio]').click(function (e) {
-        var value = $(this).val();
+    $('input[type=radio]').click(function () {
+        let value = $(this).val();
         $(this).parent().next().find('.foodDescription__cost').text(value + ' грн');
-    })
+    });
+
+    function init() {
+        menuItemHeightInit();
+    }
+
+    function calcFoodMenuPosition() {
+        foodMenuPositionTop = ($.windowHeight() - foodMenu.outerHeight()) / 2;
+    }
+
+    function menuItemHeightInit() {
+        $('.foodItem').each(function (index, item) {
+            let h = $(item).height();
+            $(item).parent().height(h + 40);
+        });
+    }
 });

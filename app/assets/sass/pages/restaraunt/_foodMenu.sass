@@ -23,3 +23,38 @@
     max-height: 30px
     display: block
     margin-right: 10px
+  &--mobile
+    position: fixed
+    right: -300px
+    display: block
+    width: 300px
+    z-index: 10
+    +ts(0.5)
+    &>.foodMenu__list
+      background-color: #fff
+      padding: 0
+
+.menuButton
+  position: absolute
+  bottom: 20px
+  right: 20px
+  width: 60px
+  height: 60px
+  border-radius: 50%
+  background-color: $accent
+  z-index: 11
+  +ts(0.5)
+  +flex-center()
+  .fa-clipboard-list
+    height: 30px
+    width: 30px
+    margin-bottom: 2px
+    path
+      fill: white
+  &--fixed
+    position: fixed
+    bottom: 20px
+  &--hide
+    right: -100px
+  &__container
+    position: relative
