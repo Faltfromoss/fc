@@ -11,8 +11,10 @@
   color: white
   font-size: 14px
 
-@media (max-width: 450px)
-  .navInfo
-    display: block
++media-breakpoint-down(xs)
   .footer--info
     justify-content: center
+    &:first-child
+      margin-bottom: 10px
+  .navInfo
+    padding: 10px 0

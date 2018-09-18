@@ -2,21 +2,12 @@
   "navPages": {
     "Главная": "index.html",
     "О нас" : "about.html",
-    "Наши партнёры" : "partners.html",
-    "Контакты" : "contacts.html"
+    "Наши партнёры" : "partners.html"
   },
   "mobileMenuItems": {
+    "Главная": "index.html",
     "О нас" : "about.html",
-    "Наши партнёры" : {
-      "Burger Club": "burgerClub.html",
-      "Pizza Time": "pizzaTime.html",
-      "Kruta": "kruta.html",
-      "Sushi-Pizza": "sushiPizza.html",
-      "Chelentano": "chelentano.html"
-    },
-    "Доставка" : "delivery.html",
-    "Оплата" : "payment.html",
-    "Контакты" : "contacts.html"
+    "Наши партнёры" : "partners.html"
   },
   "foodMenuItems": {
     "Популярные блюда": {

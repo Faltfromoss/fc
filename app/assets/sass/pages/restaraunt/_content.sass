@@ -87,6 +87,7 @@
     height: 100%
     top: 0
 
+
 .terms
   +main-bd()
   padding: 20px
@@ -143,6 +144,14 @@
         +bd(rgba(#FF9F0F, .4), 2)
     &Description
       display: none
++media-breakpoint-down(xm)
+  .about--info
+    &:first-child
+      margin-bottom: 10px
++media-breakpoint-down(xs)
+  .deliveryDescItem
+    &:first-child
+      margin-bottom: 7px
 @media (max-width: 768px)
   .terms
     &Item
@@ -159,6 +168,9 @@
       font-size: 14px
       padding: 4px 7px
       min-width: 140px
+@media (min-width: 500px) and (max-width: 505px)
+  .info__description
+    font-size: 14px
 @media (max-width: 465px)
   .nav
     &-link
